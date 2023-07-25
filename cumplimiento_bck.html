@@ -1,0 +1,78 @@
+{%extends 'reportes/jobs_bck.html'%}
+
+{%block title%}Cumplimiento ejecución de copias{%endblock title%}
+
+{% include "jobs_bck.html" %}
+
+{%block content%}
+<div class="container-fluid">
+
+    <!-- Encabezado de tabla -->
+    <h1 class="h3 mb-2 text-gray-800">Cumplimiento backups programados</h1>
+
+    <p class="mb-4"> Esta función le permite verificar cuantas copias de seguridad se generaron efectivamente a diferentes bases de datos en cada instancia
+        y comparar contra lo esperado según la programación para esta fecha
+        para una visualización más simple en caso de novedad.</p>
+
+    <p>Puede generar un archivo de tipo hoja de cálculo con esta información al final de la tabla.</p>
+
+
+    <!-- Tabla de estados DB -->
+    {% if resultadosCump %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Lista de resultados del día anterior</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Servidor</th>
+                            <th>Nombre DB</th>
+                            <th>IP servidor</th>
+                            <th>Copias ejecutadas</th>
+                            <th>Copias de seguridad programadas</th>
+                            <th>porcentaje de cumplimiento</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for x in resultadosCump %}
+                        <tr class="text-center" style="font-size: smaller;">
+                            <td class="text-center">{{x.0}}</td>
+                            <td class="text-center">{{x.1}}</td>
+                            <td class="text-center">{{x.2}}</td>
+                            <td class="text-center">{{x.3}}</td>
+                            <td class="text-center">{{x.4}}</td>
+                            <td class="text-center">{{x.5}}</td>                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </br>
+            <br>
+            <hr>
+                <h3>Rango de fecha</h3>
+                <h6>Rango de un mes o fecha determinada.</h6>
+                <br>
+                <form action="#">
+                    <div class="calendar">
+                        <label for="fromdate"></label>
+                        <input type="search" id='fromdate' placeholder="Fecha inicio" aria-label="search">
+                        <span></span>  
+                        <label for="todate"></label>
+                        <input type="search" id='todate' placeholder="Fecha fin" aria-label="search">
+                    </div>
+                </form>
+                <form action="{% url 'reportes:reporte_cumplimiento' %}" method="get" autocomplete="off">
+                    <p>Fecha inicio: <input type="date" name="fecha" placeholder="dd-mm-aaaa" onkeydown="return false"></p>
+                    <p>Fecha final: <input type="date" name="fecha1" placeholder="dd-mm-aaaa" onkeydown="return false"></p>
+                    <br>
+                    <input type="submit" value="Descargar reporte">
+                    <br>
+                    <br>
+                    <input type="reset" value="Limpiar fechas">
+                    <br>
+</div>               </form>

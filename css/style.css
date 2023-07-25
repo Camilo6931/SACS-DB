@@ -1,0 +1,130 @@
+body{
+   background: #eee;
+}
+/*SIDEBAR*/
+#side_nav{
+   background: #000;
+   min-width: 270px;
+   max-width: 270px;
+   
+
+}
+#side_nav .header-box img{
+   height: 120px;
+   padding-left: 50px;
+   
+}
+#side_nav h1{
+   padding-left: 20px;
+}
+#side_nav .list-unstyled a{
+   display: flex;
+   font-size: 1.1rem;
+   padding-left: 45px;
+}
+#side_nav .icons_{
+   list-style: none;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   width: 85px;
+   height: 85px;
+   margin: 0 20px;
+   background-color: #5c5c5c;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: 0.5s;
+}
+.content{
+   min-height: 100vh;
+   width: 100%;
+}
+
+hr.h-color{
+   background: #eee;
+}
+
+.sidebar li.active{
+   background: "#66a3ff";
+   border-radius: 8px;
+   background-color: #f3f8fe;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover{
+   color: #66a3ff;
+}
+#side_nav ul li a:hover{
+   color: #ff751a;
+}
+.sidebar li a{
+   color: #fff;
+}
+/*SIDEBAR*/
+
+/*NAVBAR*/
+root{
+   --dark-body: #4d4c5a;
+   --dark-main:#141529;
+   --dark-second:#79788c;
+   --dark-hover:#323048;
+   --dark-text:#f8fbff;
+
+   --light-body:#f3f8fe;
+   --light-main:#fdfdfd;
+   --light-second:#c3c2c8;
+   --light-hover:#edf0f5;
+   --light-text:#151426;
+
+   --blue:#0000ff;
+   --white:#fff;
+
+   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0;
+
+   --font-family: cursive;
+}
+.navbar {
+   padding-top: 15px;
+}
+
+.dark{
+   --bg-body: var(--dark-body);
+   --bg-main: var(--dark-main);
+   --bg-second: var(--dark-second);
+   --color-hover: var(--dark-hover);
+   --color-txt: var(--dark-text);
+}
+
+.light{
+   --bg-body: var(--light-body);
+   --bg-main: var(--light-main);
+   --bg-second: var(--light-second);
+   --color-hover: var(--light-hover);
+   --color-txt: var(--light-text);
+}
+
+.calendar{
+   height: max-content;
+   width: max-content;
+   background-color: var(--bg-body);
+   border-radius: 30px;
+   padding: 20px;
+   position: relative;
+   overflow: hidden;
+}
+.calendar{
+ box-shadow: var(--shadow);
+}
+
+/*NAVBAR*/
+
+/*CONTENT*/
+.h3{
+   align-content: center;
+}
+/*CONTENT*/
+
+/*FOOTER*/
+.SacsFooter{
+   display: flex;
+}
+/*FOOTER*/
