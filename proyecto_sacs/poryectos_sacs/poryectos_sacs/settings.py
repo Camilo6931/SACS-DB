@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.usuario',
+    'apps.reportes',
+    'mod_wsgi.server'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,9 +77,16 @@ WSGI_APPLICATION = 'poryectos_sacs.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default':{
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'sacs_db',
+        'password':'Asena2021',
+        'user':'asena',
+        'host':'10.99.1.77',
+        'port':'1433',
+        'options': {
+            'driver':'ODBC Driver 17 for SQL server',
+        }
     }
 }
 
@@ -105,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'América/Bogotá'
 
 USE_I18N = True
 
